@@ -6,8 +6,8 @@ if __name__ == "__main__":
     from sys import argv
 
     if len(argv) == 4:
-        a = argv[1]
-        b = argv[3]
+        a = int(argv[1])
+        b = int(argv[3])
         if argv[2] != '+' and argv[2] != '-' and argv[2] != '*' and argv[2] != '/':
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
