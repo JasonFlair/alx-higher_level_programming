@@ -1,4 +1,4 @@
-The ``matrix_divided`` module
+The ``say_my_name`` module
 ======================
 
 Using ``say_my_name``
