@@ -6,4 +6,3 @@ def read_file(filename=""):
     with open(filename, "r", encoding="UTF-8") as FILE:
         read_FILE = FILE.read()
         print(read_FILE)
-        FILE.close()
