@@ -6,7 +6,7 @@ def write_file(filename="", text=""):
     function to count characters
     :param filename: filename
     :param text: text to count
-    :return: a print of the read file to stdout
+    :return: writes into specified file
     """
     with open(filename, "w", encoding="UTF-8") as FILE:
         written_FILE = FILE.write(text)
