@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-import json
-
 """create a JSON rep of a file."""
+import json
 
 
 def to_json_string(my_obj):
