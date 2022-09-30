@@ -4,11 +4,8 @@ class Base:
 
     def __init__(self, id=None):
         """initialiser"""
-        self.id = id
         if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-
-    def id(self):
-        """returns id if id is not None"""
-        return self.id
+        else:
+            self.id = id
