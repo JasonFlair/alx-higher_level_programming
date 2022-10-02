@@ -3,6 +3,7 @@ from models.base import Base
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
+        """initialiser"""
         super().__init__(id)
 
         self.width = width
@@ -80,8 +81,19 @@ class Rectangle(Base):
         for l in range(self.height):
             print(' ' * self.x + '#' * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         count = 0
+        for k, v in kwargs.items():
+            if k == "id":
+                self.id = kwargs['id']
+            elif k == "height":
+                self.height = kwargs['height']
+            elif k == "width":
+                self.width = kwargs['width']
+            elif k == "x":
+                self.x = kwargs['x']
+            elif k == "y":
+                self.y = kwargs['y']
         for arg in args:
             count += 1
         if count == 1:
@@ -106,6 +118,7 @@ class Rectangle(Base):
             self.y = args[4]
 
 
-    def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
+    def __str__(self):
+        """str representation"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
