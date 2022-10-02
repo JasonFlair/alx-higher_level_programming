@@ -1,60 +1,36 @@
 #!/usr/bin/python3
-
-from models.rectangle import Rectangle
-
-class Square(Rectangle):
-    """for a square"""
+import json
 
 
-    def __init__(self, size, x=0, y=0, id=None):
-        """ initialiser """
-        super().__init__(size, size, x, y, id)
+class Base:
+    """base class"""
+    import json
 
-    @property
-    def size(self):
-        """getter for size"""
-        return self.width
+    __nb_objects = 0
 
-    @size.setter
-    def size(self, value):
-        """sets the size"""
-        self.width = value
-        self.height = value
+    def __init__(self, id=None):
+        """initialiser"""
+        if id is None:
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
+        else:
+            self.id = id
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """returns json string"""
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """save to json file"""
+        list_dictionary = [lst.to_dictionary() for lst in list_objs]
+        filename = cls.__name__ + ".json"
 
-    def update(self, *args, **kwargs):
-        """updates attributes of the rectangle"""
-        count = 0
-        for k, v in kwargs.items():
-            if k == "id":
-                self.id = kwargs['id']
-            elif k == "size":
-                self.size = kwargs['size']
-            elif k == "x":
-                self.x = kwargs['x']
-            elif k == "y":
-                self.y = kwargs['y']
-        for arg in args:
-            count += 1
-        if count == 1:
-            self.id = args[0]
-        elif count == 2:
-            self.id = args[0]
-            self.size = args[1]
-        elif count == 3:
-            self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-        elif count == 4:
-            self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-            self.y = args[3]
-
-    def to_dictionary(self):
-        """returns dictionary representation"""
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
-
-    def __str__(self):
-        """str representation"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        with open(filename, "w") as FILE:
+            if list_objs is None:
+                FILE.write("[]")
+            else:
+                FILE.write(Base.to_json_string(list_dictionary))
 
