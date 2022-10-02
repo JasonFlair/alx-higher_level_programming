@@ -15,6 +15,7 @@ class Rectangle(Base):
     def x(self):
         """:return y"""
         return self.__x
+
     @x.setter
     def x(self, value):
         """set x"""
@@ -82,6 +83,7 @@ class Rectangle(Base):
             print(' ' * self.x + '#' * self.width)
 
     def update(self, *args, **kwargs):
+        """updates attributes of the rectangle"""
         count = 0
         for k, v in kwargs.items():
             if k == "id":
@@ -117,7 +119,9 @@ class Rectangle(Base):
             self.x = args[3]
             self.y = args[4]
 
-
+    def to_dictionary(self):
+        """returns dictionary representation"""
+        return {'id': self.id, 'width': self.width, 'height': self.height, 'x': self.x, 'y': self.y}
 
     def __str__(self):
         """str representation"""
