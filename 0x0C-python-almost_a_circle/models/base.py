@@ -62,19 +62,23 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """returns a list of instances from a file"""
-        filename = cls.__name__ + ".json"
-        # filename will be the classname.json file
-        # housing the dictionary of attributes
-        # written to it by save to file
-        with open(filename, "r") as afile:
-            read_file = afile.read()
+        try:
+            filename = cls.__name__ + ".json"
+            # filename will be the classname.json file
+            # housing the dictionary of attributes
+            # written to it by save to file
+            with open(filename, "r") as afile:
+                read_file = afile.read()
 
-        list_dictionary = cls.from_json_string(read_file)
-        # since from json string returns a dictionary
+            list_dictionary = cls.from_json_string(read_file)
+            # since from json string returns a dictionary
 
-        # now it's time to return the instances using
-        # the dicts
-        output = [cls.create(**ld) for ld in list_dictionary]
-        # used ld because there could be more than one dictionary
+            # now it's time to return the instances using
+            # the dicts
+            output = [cls.create(**ld) for ld in list_dictionary]
+            # used ld because there could be more than one dictionary
 
-        return output
+            return output
+        except IOError or FileNotFoundError:
+            return []
+
