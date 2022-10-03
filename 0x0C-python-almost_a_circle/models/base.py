@@ -15,6 +15,7 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns json string"""
@@ -22,6 +23,7 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """save to json file"""
@@ -33,4 +35,46 @@ class Base:
                 FILE.write("[]")
             else:
                 FILE.write(Base.to_json_string(list_dictionary))
+                # the return will be a file created called
+                # the classname.json
 
+    @staticmethod
+    def from_json_string(json_string):
+        """returns a dictionary"""
+        if json_string is None or json_string == []:
+            return "[]"
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set"""
+        if cls.__name__ == "Rectangle":
+            new = cls(width=5, height=3, id=89, y=1, x=2)
+            # dummy variables created so that my
+            # update module can update the instances
+        elif cls.__name__ == "Square":
+            new = cls(size=7, id=89, y=1, x=2)
+            # dummy parameters/variables
+        new.update(**dictionary)
+        return new
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances from a file"""
+        filename = cls.__name__ + ".json"
+        # filename will be the classname.json file
+        # housing the dictionary of attributes
+        # written to it by save to file
+        with open(filename, "r") as afile:
+            read_file = afile.read()
+
+        list_dictionary = cls.from_json_string(read_file)
+        # since from json string returns a dictionary
+
+        # now it's time to return the instances using
+        # the dicts
+        output = [cls.create(**ld) for ld in list_dictionary]
+        # used ld because there could be more than one dictionary
+
+        return output
