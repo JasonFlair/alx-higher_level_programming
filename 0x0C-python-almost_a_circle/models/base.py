@@ -1,9 +1,13 @@
 #!/usr/bin/python3
+"""Defines a base model class."""
 import json
 
 
 class Base:
-    """base class"""
+    """base class
+        Private Class Attributes:
+        __nb_object (int): Number of instantiated Bases.
+    """
     import json
 
     __nb_objects = 0
@@ -81,4 +85,3 @@ class Base:
             return output
         except IOError or FileNotFoundError:
             return []
-
