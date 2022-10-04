@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Defines a square class."""
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
@@ -57,4 +57,3 @@ class Square(Rectangle):
     def __str__(self):
         """str representation"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
-
