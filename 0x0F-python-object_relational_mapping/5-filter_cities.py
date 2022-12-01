@@ -10,7 +10,11 @@ if __name__ == '__main__':
     mycursor = db.cursor()
     mycursor.execute("SELECT cities.name FROM cities WHERE cities.state_id = (SELECT id FROM states WHERE states.name = %s)", (sys.argv[4], ))
     rows = mycursor.fetchall()
+    comma_flag = 0
     for row in rows:
-        print(row[0])
+        if comma_flag == 1:
+            print(",", end=" ")
+        print(row[0], end="")
+        comma_flag = 1
     mycursor.close()
     db.close()
