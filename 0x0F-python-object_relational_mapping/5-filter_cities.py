@@ -16,5 +16,6 @@ if __name__ == '__main__':
             print(",", end=" ")
         print(row[0], end="")
         comma_flag = 1
+    print()
     mycursor.close()
     db.close()
