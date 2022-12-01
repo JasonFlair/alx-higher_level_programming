@@ -11,6 +11,6 @@ if __name__ == '__main__':
     mycursor.execute("SELECT cities.name FROM cities WHERE cities.state_id = (SELECT id FROM states WHERE states.name = %s)", (sys.argv[4], ))
     rows = mycursor.fetchall()
     for row in rows:
-        print(row)
+        print(row[i])
     mycursor.close()
     db.close()
