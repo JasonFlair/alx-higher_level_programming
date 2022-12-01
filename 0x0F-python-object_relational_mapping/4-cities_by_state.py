@@ -12,3 +12,5 @@ if __name__ == '__main__':
     rows = mycursor.fetchall()
     for row in rows:
         print(row)
+    mycursor.close()
+    db.close()
