@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-creates a state class and base, an instance of declarative_base()
+a module that retrieves all the rows
 """
 import sys
 from model_state import Base, State

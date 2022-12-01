@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a module that retrieves only the first row
+a module that rows(states) with a in them
 """
 import sys
 from model_state import Base, State
@@ -12,8 +12,6 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).order_by(State.id).first()
-    if not result:
-        print('Nothing')
-    else:
+    results = session.query(State).filter(State.name.like('%a%')).order_by(State.id)
+    for result in results:
         print(f'{result.id}: {result.name}')
