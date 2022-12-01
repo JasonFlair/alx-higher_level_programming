@@ -12,7 +12,4 @@ if __name__ == '__main__':
     mycursor.execute("SELECT * FROM states ORDER BY id")
     rows = mycursor.fetchall()
     for row in rows:
-        for col in row:
-            print("%s," % col)
-        print("\n")
-
+        print(row)
