@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
     db = MySQLdb.connect(host="localhost", user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3], port=3306)
     mycursor = db.cursor()
-    mycursor.execute("select cities.name, states.name from cities inner join states on cities.state_id = states.id")
+    mycursor.execute("SELECT cities.name, states.name FROM cities INNER JOIN states ON cities.state_id = states.id ORDER BY cities.id")
     rows = mycursor.fetchall()
     for row in rows:
         print(row)
