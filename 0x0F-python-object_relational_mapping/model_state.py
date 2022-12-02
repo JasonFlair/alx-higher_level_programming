@@ -2,10 +2,11 @@
 """
 creates a state class and base, an instance of declarative_base()
 """
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+basemetadata = MetaData()
+Base = declarative_base(metadata=basemetadata)
 
 
 class State(Base):
