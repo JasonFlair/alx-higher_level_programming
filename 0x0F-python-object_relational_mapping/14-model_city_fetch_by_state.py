@@ -4,6 +4,7 @@ a module that retrieves all the rows
 """
 import sys
 from model_state import Base, State
+from model_city import Base, City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
@@ -13,8 +14,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    instances = session.query(State).order_by(State.id)
-    for instance in instances:
-        print(f'{instance.id}: {instance.name}')
+    result = session.query(State, City).join(City).all()
+    for states, cities in result:
+        print(f'{states.name}: {cities.id} {cities.name}')
 
     session.close()
