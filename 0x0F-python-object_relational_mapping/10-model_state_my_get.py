@@ -12,8 +12,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    results = session.query(State).filter(State.name.like(sys.argv[4]))
-    for result in results:
+    result = session.query(State).filter(State.name.like(sys.argv[4]))
+    if result is None:
+        print("Not found")
+    else:
         print(f'{result.id}')
 
     session.close()
