@@ -1,20 +1,23 @@
 #!/usr/bin/python3
-"""
-a module that rows(states) with a in them
-"""
-import sys
-from model_state import Base, State
+'''This is a module'''
+
+from sys import argv
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from model_state import Base, State
+
 
 if __name__ == '__main__':
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    username = argv[1]
+    password = argv[2]
+    database = argv[3]
+
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+                            username, password, database))
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    louisiana = State(name='Louisiana')
-    session.add(louisiana)
+    new_state = State('Louisiana')
+    session.add(new_state)
     session.commit()
-    print(louisiana.id)
+    print(new_state.id)
     session.close()
