@@ -16,6 +16,6 @@ if __name__ == '__main__':
 
     result = session.query(State, City).join(City).all()
     for states, cities in result:
-        print(f'{states.name}: {cities.id} {cities.name}')
+        print(f'{states.name}: ({cities.id}) {cities.name}')
 
     session.close()
