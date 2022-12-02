@@ -13,10 +13,10 @@ if __name__ == '__main__':
     session = Session()
 
     results = session.query(State).filter(State.name.like(sys.argv[4]))
-    if results is None:
-        print("Not found")
-    else:
-        for result in results:
+    for result in results:
+        if result is None:
+            print("Nothing found")
+        else:
             print(f'{result.id}')
 
     session.close()
