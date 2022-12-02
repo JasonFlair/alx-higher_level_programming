@@ -2,7 +2,7 @@
 """
 creates a state class and base, an instance of declarative_base()
 """
-from sqlalchemy import Column, Integer, String, MetaData
+from sqlalchemy import Column, Integer, String, MetaData, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from model_state import State
 
