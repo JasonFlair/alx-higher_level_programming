@@ -5,7 +5,7 @@ a module that rows(states) with a in them
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
-import sqlalchemy
+import sqlalchemy.orm.exc.NoResultFound
 from sqlalchemy import create_engine
 
 if __name__ == '__main__':
