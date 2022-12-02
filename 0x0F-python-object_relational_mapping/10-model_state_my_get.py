@@ -5,6 +5,7 @@ a module that rows(states) with a in them
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import create_engine
 
 if __name__ == '__main__':
@@ -12,10 +13,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).filter(State.name.like(sys.argv[4])).first()
-    if result:
+    result = session.query(State).filter(State.name.like(sys.argv[4])).one()
+    try:
         print(f'{result.id}')
-    else:
+    except NoResultFound:
         print("Nothing found")
 
     session.close()
