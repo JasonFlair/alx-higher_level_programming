@@ -14,9 +14,9 @@ if __name__ == '__main__':
 
     results = session.query(State).filter(State.name.like(sys.argv[4]))
     for result in results:
-        if result is None:
-            print("Nothing found")
-        else:
+        try:
             print(f'{result.id}')
+        except IndexError:
+            print("Nothing found")
 
     session.close()
