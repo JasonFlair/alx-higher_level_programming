@@ -13,12 +13,10 @@ if __name__ == '__main__':
     session = Session()
 
     results = session.query(State).filter(State.name.like(sys.argv[4]))
-    res = results.fetchall()
-    print(res)
     for result in results:
-        try:
+        if result:
             print(f'{result.id}')
-        except IndexError:
+        else:
             print("Nothing found")
 
     session.close()
