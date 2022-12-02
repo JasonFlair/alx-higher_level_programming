@@ -5,7 +5,7 @@ a module that rows(states) with a in them
 import sys
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
-import sqlalchemy.orm.exc.NoResultFound
+from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy import create_engine
 
 if __name__ == '__main__':
@@ -16,7 +16,7 @@ if __name__ == '__main__':
     result = session.query(State).filter(State.name.like(sys.argv[4])).one()
     try:
         print(f'{result.id}')
-    except sqlalchemy.exc.NoResultFound:
+    except NoResultFound:
         print("Nothing found")
 
     session.close()
