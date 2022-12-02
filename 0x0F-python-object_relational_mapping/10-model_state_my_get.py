@@ -13,6 +13,7 @@ if __name__ == '__main__':
     session = Session()
 
     results = session.query(State).filter(State.name.like(sys.argv[4]))
+    print(results)
     for result in results:
         try:
             print(f'{result.id}')
