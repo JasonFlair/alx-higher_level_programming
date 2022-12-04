@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
+"""
 This is a filter module.
-'''
+"""
 
 if __name__ == '__main__':
     import sys

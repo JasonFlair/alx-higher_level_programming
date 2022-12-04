@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-a module that rows(states) with a in them
+a module that prints rows(states) with 'a' in
+their names
 """
 import sys
 from model_state import Base, State

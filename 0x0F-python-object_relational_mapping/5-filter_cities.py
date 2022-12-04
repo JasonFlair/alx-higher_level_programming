@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-'''
+"""
 this is a print cities module
-'''
+"""
 if __name__ == '__main__':
     import sys
     import MySQLdb

@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """ This is a module for showing all states. """
 
 if __name__ == '__main__':
@@ -15,4 +14,3 @@ if __name__ == '__main__':
         print(row)
     mycursor.close()
     db.close()
-
