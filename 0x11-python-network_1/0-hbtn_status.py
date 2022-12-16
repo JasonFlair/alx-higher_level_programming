@@ -7,3 +7,4 @@ import urllib.request
 req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
 with urllib.request.urlopen(req) as response:
     status_page = response.read()
+print(status_page.info())
