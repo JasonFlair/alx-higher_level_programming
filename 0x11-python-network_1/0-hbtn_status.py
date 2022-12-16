@@ -9,7 +9,7 @@ if __name__ == "__main__":
     req = "https://alx-intranet.hbtn.io/status"
     with urllib.request.urlopen(req) as response:
         page = response.read()
-        print("Body Response:")
+        print("Body response:")
         print(f"\t- type: {type(page)}")
         print(f"\t- content: {page}")
         utf8_body = page.decode("utf-8")
