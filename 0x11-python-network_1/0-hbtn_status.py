@@ -13,4 +13,4 @@ if __name__ == "__main__":
         print(f"\t- type: {type(page)}")
         print(f"\t- content: {page}")
         utf8_body = page.decode("utf-8")
-        print(f"\t- utf8 content: {page}")
+        print(f"\t- utf8 content: {utf8_body}")
