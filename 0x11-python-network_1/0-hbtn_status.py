@@ -10,7 +10,7 @@ if __name__ == "__main__":
     with urllib.request.urlopen(req) as response:
         page = response.read()
         print("Body Response:")
-        print("\t- type: {}".format(type(page)))
-        print("\t- content: {}".format(page))
+        print(f"\t- type: {type(page)}")
+        print(f"\t- content: {page}")
         utf8_body = page.decode("utf-8")
-        print("\t- utf8 content: {}".format(page))
+        print(f"\t- utf8 content: {page}")
