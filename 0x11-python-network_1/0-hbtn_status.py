@@ -5,7 +5,7 @@ a Python script that fetches https://alx-intranet.hbtn.io/status
 import urllib.request
 
 if __name__ == "__main__":
-    req = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+    req = "https://alx-intranet.hbtn.io/status"
     with urllib.request.urlopen(req) as response:
         status_page = response.read()
         print("Body Response:")
