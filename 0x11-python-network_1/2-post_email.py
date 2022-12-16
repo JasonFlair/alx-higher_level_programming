@@ -15,4 +15,4 @@ if __name__ == "__main__":
     request = urllib.request.Request(url, data)
     with urllib.request.urlopen(request) as response:
         page = response.read()
-        print(f"Your email is {page['email']}")
+        print(f"Your email is {value['email']}")
