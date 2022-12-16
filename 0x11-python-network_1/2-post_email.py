@@ -9,7 +9,7 @@ if __name__ == "__main__":
     import sys
 
     url = sys.argv[1]
-    value = {'email': ''.format(sys.argv[2])}
+    value = {'email': '{}'.format(sys.argv[2])}
     data = urllib.parse.urlencode(value)
     data = data.encode('ascii')  # data should be bytes
     request = urllib.request.Request(url, data)
