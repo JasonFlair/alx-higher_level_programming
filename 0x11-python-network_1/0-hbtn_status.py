@@ -12,4 +12,4 @@ if __name__ == "__main__":
         print(f"\t- type: {type(status_page)}")
         print(f"\t- content: {status_page}")
         utf8_body = status_page.decode("utf-8")
-        print(f"\t- utf 8 content: {utf8_body}")
+        print(f"\t- utf8 content: {utf8_body}")
