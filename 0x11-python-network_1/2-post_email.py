@@ -14,5 +14,5 @@ if __name__ == "__main__":
     data = data.encode('ascii')  # data should be bytes
     request = urllib.request.Request(url, data)
     with urllib.request.urlopen(request) as response:
-        headers = response.info()
-        print(f"Your email is {headers['email']}")
+        page = response.read()
+        print(f"Your email is {page['email']}")
