@@ -13,6 +13,7 @@ if __name__ == "__main__":
         url = sys.argv[1]
         with urllib.request.urlopen(url) as response:
             page = response.read()
+            print(f"{page}")
     except HTTPError as e:
         print(f'Error code: {e.code}')
     except URLError as e:
