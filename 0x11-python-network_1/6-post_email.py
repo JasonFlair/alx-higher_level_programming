@@ -11,11 +11,8 @@ import requests
 
 if __name__ == "__main__":
     url = sys.argv[1]
-    header = {"email": f"{sys.argv[2]}"}
-    """
-    named the variable header instead of headers 
-    because the only header being passed is email
-    """
-    response = requests.get(url, headers=header)
-    print(f"Your email is: {response.headers['email']}")
+    email_data = {"email": f"{sys.argv[2]}"}
+    
+    response = requests.post(url, data=email_data)
+    print(response.text)
 
