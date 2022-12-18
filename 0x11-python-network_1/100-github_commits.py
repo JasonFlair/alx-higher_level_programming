@@ -15,8 +15,9 @@ if __name__ == "__main__":
     headers = {"Accept": "application/vnd.github+json"}
 
     response = requests.get(f"{base_url}/{OWNER}/{REPO}/commits", headers=headers)
-    commits_json = response.json()
-    # print the SHA and author name for each commit
-    print(f"{commits_json['sha']}: {commits_json['name']['author']}")
-    """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 documentation if you get 
-    confused in future lol """
+    commits = response.json()
+    for commit in commits[:10]:
+        # print the SHA and author name for each commit
+        print(f"{commit['sha']}: {commit['name']['author']}")
+        """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 documentation if you get 
+        confused in future lol """
