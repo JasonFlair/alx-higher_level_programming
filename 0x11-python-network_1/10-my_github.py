@@ -14,6 +14,5 @@ if __name__ == "__main__":
     authentication = {"username", "password"}
 
     response = requests.get(url, auth=authentication)
-    print(response.headers)
-    print(response.text)
+    print(response)
     print(response.headers["id"])
