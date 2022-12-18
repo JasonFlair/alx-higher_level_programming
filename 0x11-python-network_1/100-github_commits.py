@@ -17,6 +17,6 @@ if __name__ == "__main__":
     response = requests.get(f"{base_url}/{OWNER}/{REPO}/commits", headers=headers)
     commits_json = response.json()
     # print the SHA and author name for each commit
-    print(f"{commits_json.get('sha')}: {commits_json['name']['author']}")
+    print(f"{commits_json['sha']}: {commits_json['name']['author']}")
     """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 documentation if you get 
     confused in future lol """
