@@ -18,6 +18,6 @@ if __name__ == "__main__":
     commits = response.json()
     for commit in commits[:10]:
         # print the SHA and author name for each commit
-        print(f"{commit['sha']}: {commit['name']['author']}")
+        print(f"{commit['sha']}: {commit['commit']['author']['name']}")
         """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 documentation if you get 
         confused in future lol """
