@@ -6,12 +6,13 @@ a Python script that fetches a URL
 if __name__ == "__main__":
     import requests
     import sys
+    from requests.auth import HTTPBasicAuth
 
     url = "https://api.github.com/user"
     username = sys.argv[1]
     password = sys.argv[2]
 
-    auth = {username, password}
+    auth = HTTPBasicAuth(username, password)
 
     response = requests.get(url, auth=auth)
     response = response.json()
