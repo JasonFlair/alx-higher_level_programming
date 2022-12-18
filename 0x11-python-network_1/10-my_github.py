@@ -11,8 +11,8 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
 
-    authentication = {username, password}
+    auth = {username, password}
 
-    response = requests.get(url, auth=authentication)
+    response = requests.get(url, auth=auth)
     response = response.json()
     print(response.get("id"))
