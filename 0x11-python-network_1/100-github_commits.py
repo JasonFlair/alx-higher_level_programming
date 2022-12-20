@@ -17,10 +17,11 @@ if __name__ == "__main__":
     response = requests.get(f"{base_url}/{OWNER}/{REPO}/commits", headers=headers)
     commits = response.json()
     try:
-        for commit in commits[:10]:
-            # print the SHA and author name for each commit
-            print(f"{commit['sha']}: {commit['commit']['author']['name']}")
-            """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 documentation if you get 
-            confused in future lol """
+        for individual_commit in range(10):
+            print('{}: {}'.format(
+                commits[individual_commit].get('sha'),
+                commits[individual_commit].get('commit').get('author').get('name')))
+                """refer to https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28 
+                documentation if you get confused in future lol """
     except IndexError:
         pass
