@@ -11,3 +11,5 @@ At the end of this project, you are expected to be able to explain to anyone:
 - How to make a GET request with JQuery Ajax
 - How to make a POST request with JQuery Ajax
 - How to listen/bind to DOM events
+
+tasks 7 and 8 make get requests using ajax whil task 9 makes a get request using  .get()
